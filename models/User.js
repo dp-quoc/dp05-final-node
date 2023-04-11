@@ -1,57 +1,52 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
+import { Role } from '../constants/enum';
+const Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
+const UserSchema = new Schema(
+  {
+    fullName: {
+      type: String,
+      length: 255,
+    },
 
-  lastName: {
-    type: String,
-    required: true,
-  },
+    phone: {
+      type: String,
+    },
 
-  phoneNumber: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+    email: {
+      type: String,
+      unique: true,
+      index: true,
+    },
 
-  birthday: {
-    type: Date,
-    // required: true,
-  },
+    password: {
+      type: String,
+    },
 
-  avatar: {
-    type: String,
-  },
+    IDstaff: {
+      type: String,
+    },
 
-  gender: {
-    type: Boolean,
-  },
+    avatar: {
+      type: String,
+    },
 
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
+    groupsId: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'usergroups',
+      },
+    ],
 
-  // admin, user, manager
-  role: {
-    type: String,
-    default: "user",
-    required: true,
+    role: {
+      type: String,
+      enum: Object.values(Role),
+      default: Role.STAFF,
+    },
   },
+  {
+    timestamps: true,
+  }
+);
 
-  dateCreate: {
-    type: Date,
-    required: true,
-    default: Date.now(),
-  },
-});
-
-module.exports = mongoose.model("User", UserSchema, "users");
+export const User = mongoose.model('users', UserSchema);

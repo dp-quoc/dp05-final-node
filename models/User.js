@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-import { Role } from '../constants/enum';
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const { Role } = require('../constants/enum');
 
-const UserSchema = new Schema(
+const UserSchema = new mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -49,4 +48,4 @@ const UserSchema = new Schema(
   }
 );
 
-export const User = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('User', UserSchema, 'users');

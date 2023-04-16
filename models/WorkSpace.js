@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const WorkSpaceSchema = new Schema(
+const WorkSpaceSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -25,4 +24,5 @@ const WorkSpaceSchema = new Schema(
     timestamps: true,
   }
 );
-export const WorkSpace = mongoose.model('workspaces', WorkSpaceSchema);
+
+module.exports = mongoose.model('WorkSpace', WorkSpaceSchema, 'workspaces');

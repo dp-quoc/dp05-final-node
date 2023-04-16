@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-import { RequestSTT } from '../constants/enum';
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const { RequestSTT } = require('../constants/enum');
 
-const RequestLogOffSchema = new Schema(
+const RequestLogOffSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -57,7 +56,8 @@ const RequestLogOffSchema = new Schema(
   }
 );
 
-export const RequestLogOff = mongoose.model(
-  'requestlogoffs',
-  RequestLogOffSchema
+module.exports = mongoose.model(
+  'RequestLogOff',
+  RequestLogOffSchema,
+  'requestlogoffs'
 );

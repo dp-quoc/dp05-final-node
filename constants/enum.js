@@ -1,4 +1,4 @@
-export const RequestSTT = {
+const RequestSTT = {
   PENDING: 'Pending',
   APPROVE: 'Approve',
   REJECT: 'Reject',
@@ -7,13 +7,13 @@ export const RequestSTT = {
   UPDATE: 'Update',
 };
 
-export const Role = {
+const Role = {
   STAFF: 'Staff',
   ADMIN: 'Admin',
   MANAGER: 'Manager',
 };
 
-export const TypeHistory = {
+const TypeHistory = {
   CREATE: 'CREATE',
   UPDATE: 'UPDATE',
   APPROVE: 'APPROVE',
@@ -21,3 +21,5 @@ export const TypeHistory = {
   CHANGE_REQUEST: 'CHANGE_REQUEST',
   CANCEL: 'CANCEL',
 };
+
+module.exports = { RequestSTT, Role, TypeHistory };

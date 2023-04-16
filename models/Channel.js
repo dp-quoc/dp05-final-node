@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const ChannelSchema = new Schema(
+const ChannelSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -15,4 +14,4 @@ const ChannelSchema = new Schema(
   }
 );
 
-export const Channel = mongoose.model('channels', ChannelSchema);
+module.exports = mongoose.model('Channel', ChannelSchema, 'channels');

@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-import { TypeHistory } from '../constants/enum';
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const { TypeHistory } = require('../constants/enum');
 
-const HistorySchema = new Schema(
+const HistorySchema = new mongoose.Schema(
   {
     idlogoff: {
       type: mongoose.Schema.Types.ObjectId,
@@ -62,4 +61,4 @@ const HistorySchema = new Schema(
   }
 );
 
-export const History = mongoose.model('histories', HistorySchema);
+module.exports = mongoose.model('History', HistorySchema, 'histories');

@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-const UserGroupSchema = new Schema(
+const UserGroupSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -27,4 +26,4 @@ const UserGroupSchema = new Schema(
   }
 );
 
-export const UserGroup = mongoose.model('usergroups', UserGroupSchema);
+module.exports = mongoose.model('UserGroup', UserGroupSchema, 'usergroups');
